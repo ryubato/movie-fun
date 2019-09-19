@@ -55,11 +55,11 @@
 
       <form class="navbar-form pull-right">
         <select name="field">
-          <option value="title">Title</option>
-          <option value="director">Director</option>
-          <option value="genre">Genre</option>
+          <option value="title">타이틀</option>
+          <option value="director">감독</option>
+          <option value="genre">장르</option>
         </select> <input type="text" name="key" size="20">
-        <button type="submit" class="btn">Search</button>
+        <button type="submit" class="btn">조회</button>
       </form>
 
       <!--/.nav-collapse -->
@@ -86,11 +86,11 @@
   <table class="table table-striped table-bordered">
     <thead>
     <tr>
-      <th>Title</th>
-      <th>Director</th>
-      <th>Genre</th>
-      <th>Rating</th>
-      <th>Year</th>
+      <th>타이틀</th>
+      <th>감독</th>
+      <th>장르</th>
+      <th>별점</th>
+      <th>년</th>
       <th>&nbsp;</th>
     </tr>
     </thead>
