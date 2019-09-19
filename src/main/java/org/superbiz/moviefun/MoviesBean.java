@@ -35,30 +35,36 @@ public class MoviesBean {
     public Movie find(Long id) {
         return entityManager.find(Movie.class, id);
     }
+
     @Transactional
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
     }
 
+    @Transactional
     public void editMovie(Movie movie) {
         entityManager.merge(movie);
     }
 
+    @Transactional
     public void deleteMovie(Movie movie) {
         entityManager.remove(movie);
     }
 
+    @Transactional
     public void deleteMovieId(long id) {
         Movie movie = entityManager.find(Movie.class, id);
         deleteMovie(movie);
     }
 
+    @Transactional
     public List<Movie> getMovies() {
         CriteriaQuery<Movie> cq = entityManager.getCriteriaBuilder().createQuery(Movie.class);
         cq.select(cq.from(Movie.class));
         return entityManager.createQuery(cq).getResultList();
     }
 
+    @Transactional
     public List<Movie> findAll(int firstResult, int maxResults) {
         CriteriaQuery<Movie> cq = entityManager.getCriteriaBuilder().createQuery(Movie.class);
         cq.select(cq.from(Movie.class));
@@ -68,6 +74,7 @@ public class MoviesBean {
         return q.getResultList();
     }
 
+    @Transactional
     public int countAll() {
         CriteriaQuery<Long> cq = entityManager.getCriteriaBuilder().createQuery(Long.class);
         Root<Movie> rt = cq.from(Movie.class);
@@ -76,6 +83,7 @@ public class MoviesBean {
         return (q.getSingleResult()).intValue();
     }
 
+    @Transactional
     public int count(String field, String searchTerm) {
         CriteriaBuilder qb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Long> cq = qb.createQuery(Long.class);
@@ -91,6 +99,7 @@ public class MoviesBean {
         return entityManager.createQuery(cq).getSingleResult().intValue();
     }
 
+    @Transactional
     public List<Movie> findRange(String field, String searchTerm, int firstResult, int maxResults) {
         CriteriaBuilder qb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Movie> cq = qb.createQuery(Movie.class);
